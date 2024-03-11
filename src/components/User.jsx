@@ -1,8 +1,12 @@
 import React from "react";
 import Sidebar from "./SideBar";
 import Userlist from "./Userlist";
+import { useNavigate } from 'react-router-dom';
 
-function Overview() {
+
+function User() {
+  const navigate = useNavigate();
+
   return (
     <div className="container-side">
       <Sidebar />
@@ -11,7 +15,7 @@ function Overview() {
           <p className="fs-5 fw-bold">User List</p>
           <button
             className="btn btn-dark ml-auto btn-sm fw-bold"
-            onClick={() => handleEdit(user.id)}
+            onClick={() => navigate('/new-user')}
           >
             + New User
           </button>
@@ -31,4 +35,4 @@ function Overview() {
   );
 }
 
-export default Overview;
+export default User;
