@@ -6,6 +6,7 @@ import Overview from "./components/Overview";
 import UserDetail from "./components/Userdetail";
 import Transactions from "./components/Transactions";
 import Chart from "./components/Chart";
+import Summary from "./components/Summary";
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/user/:id" element={<UserDetail />} />
             <Route path="/chart" element={<Chart />} />
+            <Route path="/summary" element={<Summary />} />
           </Routes>
         </div>
       </div>

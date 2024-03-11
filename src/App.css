@@ -24,6 +24,11 @@
   color: #fff;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .sidebar-tab {
