@@ -5,10 +5,14 @@ import Sidebar from "./SideBar";
 function NewUser() {
   const [name, setName] = useState("");
   const [pictures, setPictures] = useState([]);
+  const [pictureUrls, setPictureUrls] = useState([]);
   const navigate = useNavigate();
 
   const handleNameChange = (event) => setName(event.target.value);
-  const handlePicturesChange = (event) => setPictures(event.target.files);
+  const handlePicturesChange = (event) => {
+    setPictures(event.target.files);
+    setPictureUrls(Array.from(event.target.files).map(file => URL.createObjectURL(file)));
+  };
   const handleSave = () => {
     // Implement your logic to save the new user here
     navigate.push("/user"); // Redirect to the user page
@@ -41,6 +45,9 @@ function NewUser() {
                 multiple
                 onChange={handlePicturesChange}
               />
+              {pictureUrls.map((url, index) => (
+            <img key={index} src={url} alt="Preview" style={{ width: '100px', height: '100px' }} />
+          ))}
             </div>
             <div class="mt-4">
               <button
