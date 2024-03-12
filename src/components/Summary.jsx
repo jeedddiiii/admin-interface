@@ -1,6 +1,7 @@
 import React from "react";
 import SummaryChart from "./SummaryChart";
 import Sidebar from "./SideBar";
+import DropDown from "./DropDown";
 
 function Summary() {
   return (
@@ -8,80 +9,15 @@ function Summary() {
       <div className="container-side">
         <Sidebar />
 
-        <div className="content" style={{ height: "550px" }}>
-          <div class="dropdown">
-            <button
-              class="btn btn-outline-dark dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Month
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">
-                  January
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  February
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  March{" "}
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  April
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  May
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  June
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  July
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  August
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  September
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  October
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  November
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  December
-                </a>
-              </li>
-            </ul>
+        <div className="content " >
+          <div className="d-flex justify-content-between ">
+            <p className="fs-5 fw-bold">Summary</p>
+            <DropDown />
           </div>
-          <SummaryChart />
+          <div style={{ height: "550px" }}  class="pt-4 shadow p-3 mb-5 bg-body-tertiary rounded"   >
+             <SummaryChart />
+          </div>
+         
         </div>
       </div>
     </>

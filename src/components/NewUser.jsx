@@ -46,7 +46,7 @@ function NewUser() {
                 onChange={handlePicturesChange}
               />
               {pictureUrls.map((url, index) => (
-            <img key={index} src={url} alt="Preview" style={{ width: '100px', height: '100px' }} />
+            <img className="m-3" key={index} src={url} alt="Preview" style={{ width: '100px', height: '100px' }} />
           ))}
             </div>
             <div class="mt-4">

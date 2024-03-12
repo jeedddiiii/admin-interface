@@ -7,6 +7,9 @@ function Transactions() {
     <div className="container-side">
       <Sidebar />
       <div className="content">
+        <div className="d-flex justify-content-between ">
+          <p className="fs-5 fw-bold">Transactions</p>
+        </div>
         <TransactionsList />
       </div>
     </div>

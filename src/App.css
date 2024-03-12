@@ -25,6 +25,8 @@
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  position: fixed;
+
 }
 .sidebar a {
   color: #fff;
@@ -44,17 +46,11 @@
 .sidebar-tab.active {
   background-color: #555;
 }
-/* Add this to your CSS file */
-.overview-container {
-  display: flex;
-}
 
 .content {
   flex: 1;
   padding: 2rem; /* Adjust padding as needed */
-}
-.flex-container {
-  display: flex;
-  align-items: center;
-
+  margin-left: 200px;
+  overflow-y: auto;
+  height: 100%;
 }

@@ -40,7 +40,8 @@ function TransactionsList() {
   console.log(transactions[0]);
   return (
     <>
-      <table class="table table-hover">
+    <div className="shadow p-3 mb-3 bg-body-tertiary rounded">
+    <table class="table table-hover ">
         <thead>
           <tr>
             <th>#</th>
@@ -82,6 +83,9 @@ function TransactionsList() {
           ))}
         </tbody>
       </table>
+
+    </div>
+      
       <div className="text-center">
         <button
           onClick={() => handlePageChange(currentPage - 1)}

@@ -109,7 +109,6 @@ function SummaryChart() {
           e.id + ": " + e.formattedValue + " in country: " + e.indexValue
         }
       />
-      ;
     </>
   );
 }
