@@ -11,11 +11,41 @@ function NewUser() {
   const handleNameChange = (event) => setName(event.target.value);
   const handlePicturesChange = (event) => {
     setPictures(event.target.files);
-    setPictureUrls(Array.from(event.target.files).map(file => URL.createObjectURL(file)));
+    setPictureUrls(
+      Array.from(event.target.files).map((file) => URL.createObjectURL(file))
+    );
   };
-  const handleSave = () => {
-    // Implement your logic to save the new user here
-    navigate.push("/user"); // Redirect to the user page
+  const handleSave = async (event) => {
+    event.preventDefault();
+  
+    const formData = new FormData();
+    formData.append("name", name);
+    if (pictures.length > 0) {
+      formData.append("file", pictures[0]); // Append only the first file
+    }
+    try {
+      console.log("handleSave is called");
+      formData.append("name", name);
+      pictures.forEach((picture, index) => {
+        formData.append("file", picture, `picture${index}`);
+      });
+    } catch (error) {
+      console.error("An error occurred before the fetch call:", error);
+    }
+
+    console.log("About to make the fetch call");
+    const response = await fetch("http://localhost:8080/new-user", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      const message = await response.text();
+      console.error(`An error has occurred: ${response.status}, ${message}`);
+      throw new Error(message);
+    }
+
+    navigate("/");
   };
 
   return (
@@ -46,20 +76,26 @@ function NewUser() {
                 onChange={handlePicturesChange}
               />
               {pictureUrls.map((url, index) => (
-            <img className="m-3" key={index} src={url} alt="Preview" style={{ width: '100px', height: '100px' }} />
-          ))}
+                <img
+                  className="m-3"
+                  key={index}
+                  src={url}
+                  alt="Preview"
+                  style={{ width: "100px", height: "100px" }}
+                />
+              ))}
             </div>
-            <div class="mt-4">
+            <div>
               <button
-                className="btn btn-dark ml-auto  fw-bold"
+                className="btn btn-dark ml-auto  fw-bold me-2"
                 onClick={() => navigate("/")}
               >
                 Back
               </button>
 
               <button
-                className="btn btn-dark ml-auto  fw-bold mx-2"
-                onClick={handleSave}
+                className="btn btn-dark ml-auto  fw-bold"
+                onClick={(event) => handleSave(event)}
               >
                 Save
               </button>
