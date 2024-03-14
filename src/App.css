@@ -18,10 +18,9 @@
 }
 /* Sidebar.css */
 .sidebar {
-  width: 200px;
+  width: 230px;
   height: 100%;
-  background-color: #333;
-  color: #fff;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -29,28 +28,37 @@
 
 }
 .sidebar a {
-  color: #fff;
+  color: #5F748D;
   text-decoration: none;
 }
 
 .sidebar-tab {
   padding: 10px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .sidebar-tab:hover {
-  background-color: #555;
+  background-color: #F3F4F9;
+  border-radius: 15px;
+  transform: scale(0.95);
 }
 
 .sidebar-tab.active {
-  background-color: #555;
+  background-color: #F2F9FE; /* Change as needed */
+  border-radius: 15px;
+  transform: scale(0.95);
+  color: #48AAF2;
 }
+
+
+
 
 .content {
   flex: 1;
   padding: 2rem; /* Adjust padding as needed */
-  margin-left: 200px;
+  margin-left: 230px;
   overflow-y: auto;
   height: 100%;
+  background-color: #F3F4F9;
 }

@@ -40,7 +40,7 @@ function TransactionsList() {
   console.log(transactions[0]);
   return (
     <>
-    <div className="shadow p-3 mb-3 bg-body-tertiary rounded">
+    <div className="mx-3">
     <table class="table table-hover ">
         <thead>
           <tr>

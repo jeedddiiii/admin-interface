@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "./SideBar";
+import Sidebar from "./Sidebar";
 import Userlist from "./Userlist";
 import { useNavigate } from 'react-router-dom';
 
@@ -11,16 +11,18 @@ function User() {
     <div className="container-side">
       <Sidebar />
       <div className="content ">
-        <div className="d-flex justify-content-between pb-2">
-          <p className="fs-5 fw-bold">User List</p>
+        
+        <div class="pt-4 shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div className="d-flex justify-content-between pb-2 mx-3">
+          <p className="fs-6 fw-bold">Users</p>
           <button
-            className="btn btn-dark ml-auto btn-sm fw-bold"
+            className="btn btn-primary"
+            style={{ fontSize: "0.9rem", fontWeight: "bold", backgroundColor: "#2499EF"}}
             onClick={() => navigate('/new-user')}
           >
             + New User
           </button>
         </div>
-        <div class="pt-4 shadow p-3 mb-5 bg-body-tertiary rounded">
           <div class="mx-3 ">
             <input
               type="text"

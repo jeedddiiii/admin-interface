@@ -27,10 +27,11 @@ function UserDropdown() {
     <div>
       <div className="dropdown">
         <button
-          class="btn btn-outline-dark dropdown-toggle"
+          class="btn btn-primary dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
+          style={{ fontSize: "0.9rem", fontWeight: "bold", backgroundColor: "#2499EF"}}
         >
           Name
         </button>
