@@ -10,6 +10,17 @@ function Userlist() {
       .then((data) => setUsers(data));
   }, []);
 
+  const handleDelete = (id) => {
+    fetch(`http://localhost:8080/delete-user/${id}`, { // Replace with your API endpoint
+      method: 'DELETE',
+    })
+    .then(() => {
+      // Remove the user from the state
+      setUsers(users.filter(user => user.id !== id));
+    })
+    .catch((error) => console.error('Error:', error));
+  };
+
 
   return (
     <div className="">
