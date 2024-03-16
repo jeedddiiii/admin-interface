@@ -6,12 +6,14 @@ import UserDetail from "./components/Userdetail";
 import Transactions from "./components/Transactions";
 import Summary from "./components/Summary";
 import NewUser from "./components/NewUser";
+import Login from "./components/Login";
 function App() {
   return (
     <Router>
       <div className="app">
         <div>
           <Routes>
+            <Route path="/login" element={<Login />} />
             <Route path="/" element={<User />} />
             <Route path="/new-user" element={<NewUser />} />
             <Route path="/transactions" element={<Transactions />} />
