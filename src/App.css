@@ -25,18 +25,25 @@
   flex-direction: column;
   text-decoration: none;
   position: fixed;
+  justify-content: space-between;
 
 }
-.sidebar a {
-  color: #5F748D;
-  text-decoration: none;
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .sidebar-tab {
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  color: #5F748D;
+  text-decoration: none;
 }
+
+
 
 .sidebar-tab:hover {
   background-color: #F3F4F9;
