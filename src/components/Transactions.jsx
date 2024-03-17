@@ -2,8 +2,19 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import TransactionsList from "./TransactionsList";
 import UserDropdown from "./UserDropdown";
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Transactions() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+    // Add your component logic here
+  }, [navigate, token]);
   return (
     <div className="container-side">
       <Sidebar />

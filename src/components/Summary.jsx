@@ -2,8 +2,11 @@ import React from "react";
 import SummaryChart from "./SummaryChart";
 import Sidebar from "./Sidebar";
 import DropDown from "./DropDown";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function sendMessage() {
+  
   fetch("http://localhost:8080/send-message", { method: "POST" })
     .then((response) => {
       if (!response.ok) {
@@ -19,6 +22,15 @@ function sendMessage() {
 }
 
 function Summary() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+    // Add your component logic here
+  }, [navigate, token]);
   return (
     <>
       <div className="container-side">

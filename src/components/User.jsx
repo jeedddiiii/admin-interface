@@ -2,10 +2,19 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import Userlist from "./Userlist";
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 function User() {
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+    // Add your component logic here
+  }, [navigate, token]);
 
   return (
     <div className="container-side">

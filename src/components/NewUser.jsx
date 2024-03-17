@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import { useEffect } from "react";
 
 function NewUser() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+    // Add your component logic here
+  }, [navigate, token]);
   const [name, setName] = useState("");
   const [pictures, setPictures] = useState([]);
   const [pictureUrls, setPictureUrls] = useState([]);
-  const navigate = useNavigate();
 
   const handleNameChange = (event) => setName(event.target.value);
   const handlePicturesChange = (event) => {
