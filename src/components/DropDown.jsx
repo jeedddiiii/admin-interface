@@ -5,7 +5,7 @@ function DropDown() {
     <div>
       <div class="dropdown">
         <button
-          class="btn btn-primary dropdown-toggle"
+          class="btn btn-primary dropdown-toggle btn-lg"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
