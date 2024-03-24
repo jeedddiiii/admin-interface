@@ -25,7 +25,7 @@ function SummaryChart() {
         keys={["happy", "neutral", "sad", "angry"]}
         indexBy="name"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-        groupMode="grouped"
+        layout="horizontal"
         valueScale={{ type: "linear" }}
         indexScale={{ type: "band", round: true }}
         colors={{ scheme: "nivo" }}
