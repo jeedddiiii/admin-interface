@@ -6,16 +6,6 @@
   height: 100vh;
   width: 100vw;
 }
-.cropper {
-  width: 50vh;
-  height: 60vh;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 10px;
-}
 /* Sidebar.css */
 .sidebar {
   width: 230px;
