@@ -9,7 +9,7 @@ function TransactionsList() {
     console.log("Fetching data...");
     fetch(
       `http://localhost:8080/transaction?page=${currentPage}&limit=${itemsPerPage}`
-    ) // replace with your API endpoint
+    ) 
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -44,10 +44,9 @@ function TransactionsList() {
     <table class="table table-hover ">
         <thead>
           <tr>
-            <th>#</th>
+            <th>Date</th>
             <th>Name</th>
             <th>Emotion</th>
-            <th>Date</th>
             <th>Source</th>
             <th>Face Image</th>
             <th>Environment Image</th>
@@ -56,10 +55,9 @@ function TransactionsList() {
         <tbody>
           {transactions.map((transaction, index) => (
             <tr key={index}>
-              <td>{transaction.TransactionID}</td>
+              <td>{transaction.DateTime}</td>
               <td>{transaction.Name}</td>
               <td>{transaction.Emotion}</td>
-              <td>{transaction.DateTime}</td>
               <td>{transaction.SourceID}</td>
               <td>
                 {transaction.FaceImg && (
