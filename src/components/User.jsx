@@ -19,7 +19,7 @@ function User() {
     <div className="container-side">
       <Sidebar />
       <div className="content ">
-        <div class="pt-4 shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div class="pt-4 shadow p-3 mb-5 bg-white rounded">
           <div className="d-flex justify-content-between pb-2 mx-3">
             <p className="fs-6 fw-bold">Users</p>
             <button

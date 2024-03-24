@@ -63,7 +63,7 @@ function NewUser() {
 
       <div className="content ">
         
-        <div className="pt-4 shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div className="pt-4 shadow p-3 mb-5 bg-white rounded">
         <div className="d-flex justify-content-between pb-2 mx-3">
           <p className="fs-6 fw-bold">New User</p>
         </div>
