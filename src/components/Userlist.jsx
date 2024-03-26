@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 
-function Userlist() {
-  // Sample user data
+function Userlist({searchName}) {
   const [users, setUsers] = useState([]);
+  const filteredUsers = users.filter(user =>searchName ? user.name ===searchName : true);
 
   useEffect(() => {
-    fetch("http://localhost:8080/") // Replace with your API endpoint
+    fetch("http://localhost:8080/") 
       .then((response) => response.json())
       .then((data) => setUsers(data));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:8080/delete-user/${id}`, { // Replace with your API endpoint
+    fetch(`http://localhost:8080/delete-user/${id}`, { 
       method: 'DELETE',
     })
     .then(() => {
-      // Remove the user from the state
       setUsers(users.filter(user => user.id !== id));
     })
     .catch((error) => console.error('Error:', error));
@@ -33,7 +32,7 @@ function Userlist() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
+          {filteredUsers.map((user, index) => (
             <tr key={index}>
               <th scope="row">{index+1}</th>
               <td>{user.name}</td>

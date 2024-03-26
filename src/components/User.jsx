@@ -3,8 +3,10 @@ import Sidebar from "./Sidebar";
 import Userlist from "./Userlist";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useState } from "react";
 
 function User() {
+  const [searchName, setSearchName] = useState("");
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -12,7 +14,6 @@ function User() {
     if (!token) {
       navigate("/login");
     }
-    // Add your component logic here
   }, [navigate, token]);
 
   return (
@@ -39,8 +40,10 @@ function User() {
               type="text"
               placeholder="search user"
               className="form-control p-2 mb-3"
+              value={searchName}
+              onChange={(e) => setSearchName(e.target.value)}
             />
-            <Userlist />
+            <Userlist searchName={searchName} />
           </div>
         </div>
       </div>
