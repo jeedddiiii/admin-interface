@@ -55,23 +55,23 @@ function TransactionsList({ selectedUser }) {
             <tbody>
               {transactions.map((transaction, index) => (
                 <tr key={index}>
-                  <td>{transaction.DateTime}</td>
-                  <td>{transaction.Name}</td>
-                  <td>{transaction.Emotion}</td>
-                  <td>{transaction.SourceID}</td>
+                  <td>{transaction.date_time}</td>
+                  <td>{transaction.name}</td>
+                  <td>{transaction.emotion}</td>
+                  <td>{transaction.source_id}</td>
                   <td>
-                    {transaction.FaceImg && (
+                    {transaction.face_img && (
                       <img
-                        src={`data:image/jpeg;base64,${transaction.FaceImg}`}
+                        src={`data:image/jpeg;base64,${transaction.face_img}`}
                         alt="Face"
                         style={{ maxWidth: "60px", maxHeight: "60px" }}
                       />
                     )}
                   </td>
                   <td>
-                    {transaction.EnvironmentImg && (
+                    {transaction.environment_img && (
                       <img
-                        src={`data:image/jpeg;base64,${transaction.EnvironmentImg}`}
+                        src={`data:image/jpeg;base64,${transaction.environment_img}`}
                         alt="Environment"
                         style={{ maxWidth: "80px", maxHeight: "80px" }}
                       />

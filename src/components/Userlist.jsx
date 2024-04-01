@@ -43,7 +43,7 @@ function Userlist({ searchName }) {
               <th scope="row">{index + 1}</th>
               <td>{user.name}</td>
               <td>
-                <button
+                {/* <button
                   className="btn mx-1"
                   onClick={() => handleEdit(user.id)}
                 >
@@ -58,7 +58,7 @@ function Userlist({ searchName }) {
                       d="M3 21v-4.25L16.2 3.575q.3-.275.663-.425t.762-.15q.4 0 .775.15t.65.45L20.425 5q.3.275.438.65T21 6.4q0 .4-.137.763t-.438.662L7.25 21zM17.6 7.8L19 6.4L17.6 5l-1.4 1.4z"
                     />
                   </svg>{" "}
-                </button>
+                </button> */}
                 <button
                   className="btn mx-1 "
                   data-bs-toggle="modal"
@@ -115,7 +115,7 @@ function Userlist({ searchName }) {
               </button>
               <button type="button" data-bs-dismiss="modal" class="btn btn-danger" onClick={() => {
                   handleDelete(userToDelete.id);
-                  setUserToDelete(null); // Reset user data for deletion
+                  setUserToDelete(null); 
                 }}
 >
                 Delete
