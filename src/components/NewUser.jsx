@@ -5,13 +5,12 @@ import { useEffect } from "react";
 
 function NewUser() {
   const navigate = useNavigate();
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     if (!token) {
-      navigate('/login');
+      navigate("/login");
     }
-    // Add your component logic here
   }, [navigate, token]);
   const [name, setName] = useState("");
   const [pictures, setPictures] = useState([]);
@@ -26,11 +25,11 @@ function NewUser() {
   };
   const handleSave = async (event) => {
     event.preventDefault();
-  
+
     const formData = new FormData();
     formData.append("name", name);
     if (pictures.length > 0) {
-      formData.append("file", pictures[0]); // Append only the first file
+      formData.append("file", pictures[0]); 
     }
     try {
       console.log("handleSave is called");
@@ -53,6 +52,17 @@ function NewUser() {
       console.error(`An error has occurred: ${response.status}, ${message}`);
       throw new Error(message);
     }
+    
+    const response2 = await fetch("http://localhost:5000/store_image", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response2.ok) {
+      const message2 = await response2.text();
+      console.error(`An error has occurred: ${response2.status}, ${message2}`);
+      throw new Error(message2);
+    }
 
     navigate("/");
   };
@@ -62,11 +72,10 @@ function NewUser() {
       <Sidebar />
 
       <div className="content ">
-        
         <div className="pt-4 shadow p-3 mb-5 bg-white rounded">
-        <div className="d-flex justify-content-between pb-2 mx-3">
-          <p className="fs-6 fw-bold">New User</p>
-        </div>
+          <div className="d-flex justify-content-between pb-2 mx-3">
+            <p className="fs-6 fw-bold">New User</p>
+          </div>
           <form className="mx-3">
             <div class="mb-3 ">
               <label class="form-label">Name</label>
