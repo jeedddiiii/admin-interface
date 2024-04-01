@@ -29,7 +29,7 @@ function NewUser() {
     const formData = new FormData();
     formData.append("name", name);
     if (pictures.length > 0) {
-      formData.append("file", pictures[0]); 
+      formData.append("file", pictures[0]);
     }
     try {
       console.log("handleSave is called");
@@ -52,11 +52,23 @@ function NewUser() {
       console.error(`An error has occurred: ${response.status}, ${message}`);
       throw new Error(message);
     }
-    
+
     const response2 = await fetch("http://localhost:5000/store_image", {
       method: "POST",
       body: formData,
     });
+
+    if (response2.ok) {
+      const deleteResponse = await fetch("http://localhost:5000/delete_representations", {
+        method: "POST",
+      });
+
+      if (!deleteResponse.ok) {
+        throw new Error("Failed to delete representations");
+      }
+    } else {
+      throw new Error("Failed to store image");
+    }
 
     if (!response2.ok) {
       const message2 = await response2.text();
